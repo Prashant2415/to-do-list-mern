@@ -1,0 +1,55 @@
+.main-container{
+
+}
+.todolist-container{
+
+}
+.title-container{
+    display: flex;
+    justify-content: center;
+}
+.title{
+    color: white;
+}
+.add-new-button{
+    margin: 0rem 0rem 2rem 2rem;
+    background-color: royalblue;
+    color: white;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+.form-div-container{
+    margin: 0rem 0rem 0rem 2rem;
+}
+.form-container{
+    width: 40rem;
+}
+.input-area{
+    width: 30rem;
+    height: 2rem;
+    border-radius: 1rem;
+    margin: 0rem 0rem 0.5rem 0rem;
+}
+.input-date{
+    height: 2rem;
+    border-radius: 1rem;
+}
+.submit-button{
+    border-radius: 1rem;
+    background-color: royalblue;
+    color: white;
+    width: 5rem;
+    height: 2rem;
+}
+.margin-gap{
+    margin: 0rem 0rem 0.5rem 0rem;
+}
+.display-data-container{
+    margin: 0rem 0rem 0rem 2rem;
+}
+.display-data{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
