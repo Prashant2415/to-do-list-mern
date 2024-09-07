@@ -53,11 +53,6 @@ public class ToDoData {
 	public void setCheck(boolean check) {
 		this.check = check;
 	}
-	@Override
-	public String toString() {
-		return "ToDoData [todoid=" + todoid + ", message=" + message + ", dateTime=" + dateTime + ", check=" + check
-				+ "]";
-	}
 	
 	
 	

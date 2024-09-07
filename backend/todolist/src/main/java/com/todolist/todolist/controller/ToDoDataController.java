@@ -1,5 +1,6 @@
 package com.todolist.todolist.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,11 @@ import com.todolist.todolist.service.ToDoDataService;
 public class ToDoDataController {
 	@Autowired
 	private ToDoDataService listService;
-	
+	private List<ToDoData> list = new ArrayList<>();
 	@PostMapping("/save")
 	public String saveListData(@RequestBody ToDoData listData) {
-		listService.saveListData(listData);
+		//listService.saveListData(listData);
+		list.add(listData);
 		return "Data saved";
 	}
 	
