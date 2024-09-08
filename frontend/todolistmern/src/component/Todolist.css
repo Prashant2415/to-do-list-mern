@@ -48,6 +48,9 @@
 .display-data-container{
     margin: 0rem 0rem 0rem 2rem;
 }
+.display-data-title{
+    color: white;
+}
 .display-data{
     display: flex;
     list-style: none;

@@ -18,16 +18,14 @@ import com.todolist.todolist.model.ToDoData;
 import com.todolist.todolist.service.ToDoDataService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:3000")
 @RequestMapping("/todo")
 public class ToDoDataController {
 	@Autowired
 	private ToDoDataService listService;
-	private List<ToDoData> list = new ArrayList<>();
 	@PostMapping("/save")
 	public String saveListData(@RequestBody ToDoData listData) {
-		//listService.saveListData(listData);
-		list.add(listData);
+		listService.saveListData(listData);
 		return "Data saved";
 	}
 	

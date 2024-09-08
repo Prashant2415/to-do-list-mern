@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../component/Todolist.css";
+import axios from "axios";
+
 const Todolist = (props) => {
     console.log("Props ", props.todoData)
     const [inputFlag, setInputFlag] = useState(false);
     const actualData = props.todoData;
+
+    const [todo,setTodo] = useState(actualData);
+    const [newTodo, setNewTodo] = useState({message:"", dateTime:"",check:"true"});
+
     const handleAddNewButton = () =>{
         setInputFlag(true);
     }
-    const handleSubmit = (event) =>{
-        event.preventDefault();
-        console.log("Submit")
+    
+    const handleSubmit =(e)=>{
+        e.preventDefault();
+        axios.post("http://localhost:8080/todo/save",newTodo).then(response =>{
+            setTodo(...todo.length + 1,response.data);
+            setNewTodo({ message: "", dateTime: "", check: false });
+        })
+        .catch(error => console.log("error ",error))
+        
+        window.location.reload(); // added to make the page reload so it will call end backend get all todo list api 
     }
-    console.log("actaula data ",actualData)
+
   return (
       <div className='main-container'>
           <div className='todolist-container'>
@@ -23,17 +36,18 @@ const Todolist = (props) => {
               <br />
               {inputFlag ?
                   <div className='form-div-container'>
-                      <form className='form-container'>
-                          <input className='input-area margin-gap' type='textarea' placeholder='Enter your to do' />
+                      <form className='form-container'  onSubmit={handleSubmit}>
+                          <input className='input-area margin-gap' type='text' onChange={(e) => setNewTodo({ ...newTodo, message: e.target.value })} placeholder='Enter your to do' />
                           <br />
-                          <input className='input-date margin-gap' type='date' />
+                          <input className='input-date margin-gap' onChange={(e) => setNewTodo({ ...newTodo, dateTime: e.target.value })} type='datetime-local' />
                           <br />
-                          <button className='submit-button' onClick={handleSubmit}>Submit</button>
+                          <button className='submit-button'>Submit</button>
                       </form>
                   </div>
                   : ""}
                 <br/>
                 <div className='display-data-container'>
+                    <h1 className='display-data-title'>Task to Complete</h1>
                 {actualData.map((data,index)=>{
                     return(
                         <div className='display-data'>
