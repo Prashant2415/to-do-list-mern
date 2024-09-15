@@ -27,13 +27,23 @@ const Todolist = (props) => {
 
     const handleClearAll = ()=>{
         console.log("Clear all")
+        try{
         axios.delete(`http://localhost:8080/todo/deleteAll`)
-
+        }
+        catch(Error){
+            console.log("Error ",Error)
+        }
         window.location.reload();
     }
+    
     const handleClearSpecific = async(specificId)=>{
         console.log("Specific id ",specificId);
-        axios.delete(`http://localhost:8080/todo/deleteById/${specificId}`)
+        try{
+            axios.delete(`http://localhost:8080/todo/deleteById/${specificId}`)
+            }
+            catch(Error){
+                console.log("Error ",Error)
+            }
 
         window.location.reload();
     }
