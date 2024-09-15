@@ -25,6 +25,19 @@ const Todolist = (props) => {
         window.location.reload(); // added to make the page reload so it will call end backend get all todo list api 
     }
 
+    const handleClearAll = ()=>{
+        console.log("Clear all")
+        axios.delete(`http://localhost:8080/todo/deleteAll`)
+
+        window.location.reload();
+    }
+    const handleClearSpecific = async(specificId)=>{
+        console.log("Specific id ",specificId);
+        axios.delete(`http://localhost:8080/todo/deleteById/${specificId}`)
+
+        window.location.reload();
+    }
+
   return (
       <div className='main-container'>
           <div className='todolist-container'>
@@ -48,11 +61,13 @@ const Todolist = (props) => {
                 <br/>
                 <div className='display-data-container'>
                     <h1 className='display-data-title'>Task to Complete</h1>
+                    <button className='clear-all-button' onClick={handleClearAll}>Clear All</button>
                 {actualData.map((data,index)=>{
                     return(
                         <div className='display-data'>
                             <input key={data.id} type='checkbox'/>
-                            <li key={data.id}>{data.message}</li>
+                            <li key={data.id} className='display-message'>{data.message}</li>
+                            <button key={data.id} className='cross-specific' onClick={()=>{handleClearSpecific(data.todoid)}}>x</button>
                         </div>
                     )
                 })}

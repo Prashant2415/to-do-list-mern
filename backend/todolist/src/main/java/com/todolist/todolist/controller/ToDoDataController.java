@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.todolist.todolist.model.ToDoData;
+import com.todolist.todolist.repo.ToDoDataRepo;
 import com.todolist.todolist.service.ToDoDataService;
 
 @RestController
@@ -23,6 +24,9 @@ import com.todolist.todolist.service.ToDoDataService;
 public class ToDoDataController {
 	@Autowired
 	private ToDoDataService listService;
+	
+	@Autowired
+	private ToDoDataRepo listRepo;
 	@PostMapping("/save")
 	public String saveListData(@RequestBody ToDoData listData) {
 		listService.saveListData(listData);
@@ -52,7 +56,11 @@ public class ToDoDataController {
 	{
 		listService.deleteDataById(todoid);
 	}
-	
+	@DeleteMapping("/deleteAll")
+	public void deleteAllList()
+	{
+		listRepo.deleteAll();
+	}
 	
 	
 }

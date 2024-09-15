@@ -56,3 +56,19 @@
     list-style: none;
     gap: 2rem;
 }
+.display-message{
+    width: 25rem;
+}
+.cross-specific{
+    background-color: royalblue;
+    color: white;
+    border-radius: 0rem;
+}
+.clear-all-button{
+    margin: 0rem 0rem 1rem 0rem;
+    background-color: royalblue;
+    color: white;
+    border-radius: 1rem;
+    padding: 4px 8px 4px 8px;
+    font-weight: 700;
+}
