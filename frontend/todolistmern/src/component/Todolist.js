@@ -3,7 +3,6 @@ import "../component/Todolist.css";
 import axios from "axios";
 
 const Todolist = (props) => {
-    console.log("Props ", props.todoData)
     const [inputFlag, setInputFlag] = useState(false);
     const actualData = props.todoData;
 
@@ -34,7 +33,6 @@ const Todolist = (props) => {
     }
 
     const handleClearAll = ()=>{
-        console.log("Clear all")
         try{
         axios.delete(`http://localhost:8080/todo/deleteAll`)
         }
@@ -45,14 +43,12 @@ const Todolist = (props) => {
     }
     
     const handleClearSpecific = async(specificId)=>{
-        console.log("Specific id ",specificId);
         try{
             axios.delete(`http://localhost:8080/todo/deleteById/${specificId}`)
             }
             catch(Error){
                 console.log("Error ",Error)
             }
-
         window.location.reload();
     }
 
