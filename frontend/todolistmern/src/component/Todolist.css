@@ -13,11 +13,12 @@
 }
 .add-new-button{
     margin: 0rem 0rem 2rem 2rem;
-    background-color: royalblue;
-    color: white;
-    width: 5rem;
+    background: #ffb17a;
+    color: #2d3250;
+    width: 6rem;
     height: 2rem;
     border-radius: 1rem;
+    font-weight: 800;
 }
 .form-div-container{
     margin: 0rem 0rem 0rem 2rem;
@@ -30,17 +31,27 @@
     height: 2rem;
     border-radius: 1rem;
     margin: 0rem 0rem 0.5rem 0rem;
+    background: #676f8d;
+    color: #ffffff;
+    padding: 0rem 0rem 0rem 0.5rem;
 }
 .input-date{
     height: 2rem;
     border-radius: 1rem;
+    background: #676f8d;
+    color: #ffffff;
+    padding: 0rem 0rem 0rem 0.5rem;
+}
+.input-area::placeholder{
+    color: #ffffff;
 }
 .submit-button{
     border-radius: 1rem;
-    background-color: royalblue;
-    color: white;
+    background: #ffb17a;
+    color: #2d3250;
     width: 5rem;
     height: 2rem;
+    font-weight: 800;
 }
 .margin-gap{
     margin: 0rem 0rem 0.5rem 0rem;
@@ -55,19 +66,20 @@
     display: flex;
     list-style: none;
     gap: 2rem;
+    color: #ffffff;
 }
 .display-message{
     width: 25rem;
 }
 .cross-specific{
-    background-color: royalblue;
-    color: white;
+    background: #ffb17a;
+    color: #2d3250;
     border-radius: 0rem;
 }
 .clear-all-button{
     margin: 0rem 0rem 1rem 0rem;
-    background-color: royalblue;
-    color: white;
+    background: #ffb17a;
+    color: #2d3250;
     border-radius: 1rem;
     padding: 4px 8px 4px 8px;
     font-weight: 700;

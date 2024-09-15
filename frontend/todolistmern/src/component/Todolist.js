@@ -70,8 +70,12 @@ const Todolist = (props) => {
                   : ""}
                 <br/>
                 <div className='display-data-container'>
-                    <h1 className='display-data-title'>Task to Complete</h1>
-                    <button className='clear-all-button' onClick={handleClearAll}>Clear All</button>
+                    {actualData.length > 0? (
+                        <>
+                        <h1 className='display-data-title'>Task to Complete</h1>
+                        <button className='clear-all-button' onClick={handleClearAll}>Clear All</button>
+                        </>
+                    ): " "}
                 {actualData.map((data,index)=>{
                     return(
                         <div className='display-data'>
