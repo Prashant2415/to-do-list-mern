@@ -19,6 +19,7 @@
     height: 2rem;
     border-radius: 1rem;
     font-weight: 800;
+    cursor: pointer;
 }
 .form-div-container{
     margin: 0rem 0rem 0rem 2rem;
@@ -41,6 +42,7 @@
     background: #676f8d;
     color: #ffffff;
     padding: 0rem 0rem 0rem 0.5rem;
+    cursor: pointer;
 }
 .input-area::placeholder{
     color: #ffffff;
@@ -52,6 +54,7 @@
     width: 5rem;
     height: 2rem;
     font-weight: 800;
+    cursor: pointer;
 }
 .margin-gap{
     margin: 0rem 0rem 0.5rem 0rem;
@@ -75,6 +78,7 @@
     background: #ffb17a;
     color: #2d3250;
     border-radius: 0rem;
+    cursor: pointer;
 }
 .clear-all-button{
     margin: 0rem 0rem 1rem 0rem;
@@ -83,4 +87,5 @@
     border-radius: 1rem;
     padding: 4px 8px 4px 8px;
     font-weight: 700;
+    cursor: pointer;
 }

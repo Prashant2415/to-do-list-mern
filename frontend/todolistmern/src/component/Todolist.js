@@ -16,12 +16,20 @@ const Todolist = (props) => {
     
     const handleSubmit =(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:8080/todo/save",newTodo).then(response =>{
-            setTodo(...todo.length + 1,response.data);
-            setNewTodo({ message: "", dateTime: "", check: false });
-        })
-        .catch(error => console.log("error ",error))
-        
+        if((newTodo.message).length > 0)
+        {
+            {
+                axios.post("http://localhost:8080/todo/save",newTodo).then(response =>{
+                    setTodo(...todo.length + 1,response.data);
+                    setNewTodo({ message: "", dateTime: "", check: false });
+                })
+                .catch(error => console.log("error ",error))
+            }
+            }
+            else
+            {
+            alert("Please enter some message before submit")  
+            }
         window.location.reload(); // added to make the page reload so it will call end backend get all todo list api 
     }
 
@@ -60,9 +68,11 @@ const Todolist = (props) => {
               {inputFlag ?
                   <div className='form-div-container'>
                       <form className='form-container'  onSubmit={handleSubmit}>
-                          <input className='input-area margin-gap' type='text' onChange={(e) => setNewTodo({ ...newTodo, message: e.target.value })} placeholder='Enter your to do' />
+                          <input className='input-area margin-gap' type='text' onChange={(e) => setTimeout(()=>{
+                            setNewTodo({ ...newTodo, message: e.target.value })
+                          },2000)} placeholder='Enter your to do' required/>
                           <br />
-                          <input className='input-date margin-gap' onChange={(e) => setNewTodo({ ...newTodo, dateTime: e.target.value })} type='datetime-local' />
+                          <input className='input-date margin-gap' onChange={(e) => setNewTodo({ ...newTodo, dateTime: e.target.value })} type='datetime-local' required/>
                           <br />
                           <button className='submit-button'>Submit</button>
                       </form>
